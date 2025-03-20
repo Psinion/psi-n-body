@@ -1,14 +1,20 @@
 #include "Vector2.h"
 
+using namespace Math;
+
 Vector2::Vector2() : X(0), Y(0) {}
 Vector2::Vector2(const Vector2& a) = default;
 Vector2::Vector2(const float x, const float y) : X(x), Y(y) {}
 
-Vector2 Vector2::zero() {
+Vector2 Vector2::Zero() {
     return {0, 0};
 }
 
-Vector2 & Vector2::operator = (const Vector2 &a) = default;
+Vector2 Vector2::One() {
+    return {1, 1};
+}
+
+Vector2 &Vector2::operator = (const Vector2 &a) = default;
 
 bool Vector2::operator == (const Vector2 &a) const {
     return X == a.X
@@ -64,4 +70,9 @@ Vector2 & Vector2::operator /= (const float a) {
     X *= oneOverA;
     Y *= oneOverA;
     return *this;
+}
+
+Vector2 Vector2::Normalized() const {
+    const float oneOverMag = 1.0f / std::sqrt(X * X + Y * Y);
+    return *this * oneOverMag;
 }

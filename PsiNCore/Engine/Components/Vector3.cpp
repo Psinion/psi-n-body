@@ -1,11 +1,17 @@
 #include "Vector3.h"
 
+using namespace Math;
+
 Vector3::Vector3() : X(0), Y(0), Z(0) {}
 Vector3::Vector3(const Vector3& a) = default;
 Vector3::Vector3(const float x, const float y, const float z) : X(x), Y(y), Z(z) {}
 
-Vector3 Vector3::zero() {
+Vector3 Vector3::Zero() {
     return {0, 0, 0};
+}
+
+Vector3 Vector3::One() {
+    return {1, 1, 1};
 }
 
 Vector3 & Vector3::operator = (const Vector3 &a) = default;
@@ -70,4 +76,9 @@ Vector3 & Vector3::operator /= (const float a) {
     Y *= oneOverA;
     Z *= oneOverA;
     return *this;
+}
+
+Vector3 Vector3::Normalized() const {
+    const float oneOverMag = 1.0f / std::sqrt(X * X + Y * Y + Z * Z);
+    return *this * oneOverMag;
 }

@@ -4,7 +4,7 @@
 
 
 int main() {
-    auto vector = new Vector3(3, 4, 5);
+    auto vector = new Math::Vector3(3, 4, 5);
 
     printf("Hello World\n");
 }
