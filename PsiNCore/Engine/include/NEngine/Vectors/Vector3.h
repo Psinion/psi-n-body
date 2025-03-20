@@ -1,5 +1,4 @@
 #pragma once
-#include <cmath>
 
 namespace Vectors {
     struct Vector3
@@ -24,13 +23,13 @@ namespace Vectors {
 
         Vector3 operator + (const Vector3& a) const;
         Vector3 operator - (const Vector3& a) const;
-        Vector3 operator * (float a) const;
-        Vector3 operator / (float a) const;
+        Vector3 operator * (float k) const;
+        Vector3 operator / (float k) const;
 
         Vector3 &operator += (const Vector3 &a);
         Vector3 &operator -= (const Vector3 &a);
-        Vector3 &operator *= (float a);
-        Vector3 &operator /= (float a);
+        Vector3 &operator *= (float k);
+        Vector3 &operator /= (float k);
 
         /**
         * Compute magnitude of vector
@@ -42,4 +41,6 @@ namespace Vectors {
         */
         Vector3 Normalized() const;
     };
+
+    inline Vector3 operator * (float k, const Vector3& a);
 }

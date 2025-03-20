@@ -1,10 +1,9 @@
 ﻿project(App)
 
-add_executable(App)
+add_executable(App main.cpp)
 
 target_sources(App
     PRIVATE
-        src/main.cpp
 )
 
 target_include_directories(App

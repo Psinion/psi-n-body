@@ -8,6 +8,10 @@ if (MSVC)
 endif()
 
 add_subdirectory(Engine)
+add_subdirectory(Tests)
 add_subdirectory(App)
+
+enable_testing()
+add_test(NAME Tests COMMAND Tests)
 
 install(TARGETS App FILE_SET HEADERS)

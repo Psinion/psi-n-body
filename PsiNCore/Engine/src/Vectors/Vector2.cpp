@@ -1,5 +1,5 @@
-#include <cmath>
 #include "NEngine/Vectors/Vector2.h"
+#include <cmath>
 
 using namespace Vectors;
 
@@ -39,12 +39,12 @@ Vector2 Vector2::operator - (const Vector2 &a) const {
     return {X - a.X, Y - a.Y};
 }
 
-Vector2 Vector2::operator * (const float a) const {
-    return {X * a, Y * a};
+Vector2 Vector2::operator * (const float k) const {
+    return {X * k, Y * k};
 }
 
-Vector2 Vector2::operator / (const float a) const {
-    const float oneOverA = 1.0f / a;
+Vector2 Vector2::operator / (const float k) const {
+    const float oneOverA = 1.0f / k;
     return {X * oneOverA, Y * oneOverA};
 }
 
@@ -60,14 +60,14 @@ Vector2 &Vector2::operator -= (const Vector2 &a) {
     return *this;
 }
 
-Vector2 & Vector2::operator *= (const float a) {
-    X *= a;
-    Y *= a;
+Vector2 & Vector2::operator *= (const float k) {
+    X *= k;
+    Y *= k;
     return *this;
 }
 
-Vector2 & Vector2::operator /= (const float a) {
-    const float oneOverA = 1.0f / a;
+Vector2 & Vector2::operator /= (const float k) {
+    const float oneOverA = 1.0f / k;
     X *= oneOverA;
     Y *= oneOverA;
     return *this;
@@ -80,4 +80,8 @@ float Vector2::Magnitude() const {
 Vector2 Vector2::Normalized() const {
     const float oneOverMag = 1.0f / std::sqrt(X * X + Y * Y);
     return *this * oneOverMag;
+}
+
+Vector2 Vectors::operator*(const float k, const Vector2 &a) {
+    return {a.X * k, a.Y * k};
 }

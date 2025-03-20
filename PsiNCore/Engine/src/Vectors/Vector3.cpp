@@ -1,4 +1,5 @@
 #include "NEngine/Vectors/Vector3.h"
+#include <cmath>
 
 using namespace Vectors;
 
@@ -40,12 +41,12 @@ Vector3 Vector3::operator - (const Vector3 &a) const {
     return {X - a.X, Y - a.Y, Z - a.Z};
 }
 
-Vector3 Vector3::operator * (const float a) const {
-    return {X * a, Y * a, Z * a};
+Vector3 Vector3::operator * (const float k) const {
+    return {X * k, Y * k, Z * k};
 }
 
-Vector3 Vector3::operator / (const float a) const {
-    const float oneOverA = 1.0f / a;
+Vector3 Vector3::operator / (const float k) const {
+    const float oneOverA = 1.0f / k;
     return {X * oneOverA, Y * oneOverA, Z * oneOverA};
 }
 
@@ -63,15 +64,15 @@ Vector3 &Vector3::operator -= (const Vector3 &a) {
     return *this;
 }
 
-Vector3 & Vector3::operator *= (const float a) {
-    X *= a;
-    Y *= a;
-    Z *= a;
+Vector3 & Vector3::operator *= (const float k) {
+    X *= k;
+    Y *= k;
+    Z *= k;
     return *this;
 }
 
-Vector3 & Vector3::operator /= (const float a) {
-    const float oneOverA = 1.0f / a;
+Vector3 & Vector3::operator /= (const float k) {
+    const float oneOverA = 1.0f / k;
     X *= oneOverA;
     Y *= oneOverA;
     Z *= oneOverA;
@@ -85,4 +86,8 @@ float Vector3::Magnitude() const {
 Vector3 Vector3::Normalized() const {
     const float oneOverMag = 1.0f / std::sqrt(X * X + Y * Y + Z * Z);
     return *this * oneOverMag;
+}
+
+Vector3 Vectors::operator*(const float k, const Vector3 &a) {
+    return {a.X * k, a.Y * k, a.Z * k};
 }

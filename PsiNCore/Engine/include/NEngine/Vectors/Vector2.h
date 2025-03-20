@@ -3,8 +3,8 @@
 namespace Vectors {
     struct Vector2
     {
-        float X = 4;
-        float Y = 2;
+        float X;
+        float Y;
 
         Vector2();
         Vector2(const Vector2& a);
@@ -22,13 +22,13 @@ namespace Vectors {
 
         Vector2 operator + (const Vector2& a) const;
         Vector2 operator - (const Vector2& a) const;
-        Vector2 operator * (float a) const;
-        Vector2 operator / (float a) const;
+        Vector2 operator * (float k) const;
+        Vector2 operator / (float k) const;
 
         Vector2 &operator += (const Vector2 &a);
         Vector2 &operator -= (const Vector2 &a);
-        Vector2 &operator *= (float a);
-        Vector2 &operator /= (float a);
+        Vector2 &operator *= (float k);
+        Vector2 &operator /= (float k);
 
         /**
         * Compute magnitude of vector
@@ -40,4 +40,6 @@ namespace Vectors {
         */
         Vector2 Normalized() const;
     };
+
+    inline Vector2 operator * (float k, const Vector2& a);
 }
