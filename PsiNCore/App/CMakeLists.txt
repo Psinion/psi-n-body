@@ -1,9 +1,16 @@
-﻿add_executable(App
-    main.cpp
+﻿project(App)
+
+add_executable(App)
+
+target_sources(App
+    PRIVATE
+        src/main.cpp
 )
 
-target_link_libraries(App PRIVATE Engine)
-
-target_include_directories(App PRIVATE
-    ${CMAKE_SOURCE_DIR}/Engine/include
+target_include_directories(App
+    PRIVATE
+        ${CMAKE_SOURCE_DIR}
 )
+
+target_link_libraries(App
+    PRIVATE Engine)

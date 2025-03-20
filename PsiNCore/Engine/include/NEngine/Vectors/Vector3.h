@@ -1,7 +1,7 @@
 #pragma once
 #include <cmath>
 
-namespace Math {
+namespace Vectors {
     struct Vector3
     {
         float X;
@@ -31,6 +31,11 @@ namespace Math {
         Vector3 &operator -= (const Vector3 &a);
         Vector3 &operator *= (float a);
         Vector3 &operator /= (float a);
+
+        /**
+        * Compute magnitude of vector
+        */
+        float Magnitude() const;
 
         /**
         * Returns normalized copy of this vector

@@ -1,6 +1,6 @@
-#include "Vector3.h"
+#include "NEngine/Vectors/Vector3.h"
 
-using namespace Math;
+using namespace Vectors;
 
 Vector3::Vector3() : X(0), Y(0), Z(0) {}
 Vector3::Vector3(const Vector3& a) = default;
@@ -76,6 +76,10 @@ Vector3 & Vector3::operator /= (const float a) {
     Y *= oneOverA;
     Z *= oneOverA;
     return *this;
+}
+
+float Vector3::Magnitude() const {
+    return std::sqrt(X * X + Y * Y + Z * Z);
 }
 
 Vector3 Vector3::Normalized() const {

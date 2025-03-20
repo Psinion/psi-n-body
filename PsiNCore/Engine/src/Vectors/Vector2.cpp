@@ -1,6 +1,7 @@
-#include "Vector2.h"
+#include <cmath>
+#include "NEngine/Vectors/Vector2.h"
 
-using namespace Math;
+using namespace Vectors;
 
 Vector2::Vector2() : X(0), Y(0) {}
 Vector2::Vector2(const Vector2& a) = default;
@@ -70,6 +71,10 @@ Vector2 & Vector2::operator /= (const float a) {
     X *= oneOverA;
     Y *= oneOverA;
     return *this;
+}
+
+float Vector2::Magnitude() const {
+    return std::sqrt(X * X + Y * Y);
 }
 
 Vector2 Vector2::Normalized() const {
