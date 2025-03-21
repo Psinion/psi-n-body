@@ -87,7 +87,3 @@ Vector3 Vector3::Normalized() const {
     const float oneOverMag = 1.0f / std::sqrt(X * X + Y * Y + Z * Z);
     return *this * oneOverMag;
 }
-
-Vector3 Vectors::operator*(const float k, const Vector3 &a) {
-    return {a.X * k, a.Y * k, a.Z * k};
-}

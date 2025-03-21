@@ -42,5 +42,7 @@ namespace Vectors {
         Vector3 Normalized() const;
     };
 
-    inline Vector3 operator * (float k, const Vector3& a);
+    inline Vector3 operator * (float k, const Vector3& a) {
+        return {a.X * k, a.Y * k, a.Z * k};
+    }
 }

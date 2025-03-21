@@ -4,12 +4,12 @@ add_library(Engine SHARED)
 
 target_sources(Engine
     PUBLIC
-        src/Vectors/Vector2.cpp
-        src/Vectors/Vector3.cpp
-        src/Vectors/VectorExtensions.cpp
         include/NEngine/Vectors/Vector2.h
+        src/Vectors/Vector2.cpp
         include/NEngine/Vectors/Vector3.h
+        src/Vectors/Vector3.cpp
         include/NEngine/Vectors/VectorExtensions.h
+        src/Vectors/VectorExtensions.cpp
 )
 
 target_include_directories(Engine

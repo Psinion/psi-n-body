@@ -41,5 +41,7 @@ namespace Vectors {
         Vector2 Normalized() const;
     };
 
-    inline Vector2 operator * (float k, const Vector2& a);
+    inline Vector2 operator * (float k, const Vector2& a) {
+        return {a.X * k, a.Y * k};
+    }
 }

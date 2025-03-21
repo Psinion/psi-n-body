@@ -81,7 +81,3 @@ Vector2 Vector2::Normalized() const {
     const float oneOverMag = 1.0f / std::sqrt(X * X + Y * Y);
     return *this * oneOverMag;
 }
-
-Vector2 Vectors::operator*(const float k, const Vector2 &a) {
-    return {a.X * k, a.Y * k};
-}
